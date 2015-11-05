@@ -1,0 +1,53 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} Tasks | PMA {% endblock %}
+{% block contacts %}
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2> Keep up with all your contacts</h2>
+
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                            class="glyphicon glyphicon-chevron-up"></i></a>
+
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="alert alert-info"><a href="http://127.0.0.1:8000/admin/login/?next=/admin/">Add Action plan</a></div>
+                <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Task</th>
+                            <th>Responsibility</th>
+                            <th>Objective</th>
+                            <th>Due Date</th>
+                            <th>Date Finished</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for action in ActionPlan %}
+                            <tr>
+                              <td height="auto" >{{ action.name }}</td>
+                              <td>{{ action.tasks }}</td>
+                              <td>{{ action.responsibility }}</td>
+                              <td>{{ action.objective }}</td>
+                              <td>{{ action.Date_Due }}</td>
+                              <td>{{ action.Date_Finished }}</td>
+
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
